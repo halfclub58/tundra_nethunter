@@ -1,6 +1,6 @@
 config MOTO_F_USBNET
         tristate "Moto USBNET Extension"
-        default n
+        default y
         help
          Say Y here if you have a MOTO F USBNET compatible
          device defined.
