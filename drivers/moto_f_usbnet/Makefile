@@ -1,3 +1,5 @@
+obj-$(CONFIG_MOTO_F_USBNET) += mmi_relay.o
+
 all: modules
 
 modules:

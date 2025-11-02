@@ -1,6 +1,6 @@
 config WATCHDOGTEST
         tristate "WATCHDOGTEST"
-        default n
+        default y
         help
          Say Y here if you have a WATCHDOGTEST compatible
          device defined.

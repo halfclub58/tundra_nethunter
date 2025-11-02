@@ -1,6 +1,6 @@
 config MMI_RELAY
         tristate "MMI RELAY"
-        default n
+        default y
         help
          Say Y here if you have a MMI Relay
 
