@@ -3,6 +3,7 @@
 
 #include <linux/acpi.h>
 #include "mt7921.h"
+#include "mt7921_compat.h"
 
 static int
 mt7921_acpi_read(struct mt7921_dev *dev, u8 *method, u8 **tbl, u32 *len)
