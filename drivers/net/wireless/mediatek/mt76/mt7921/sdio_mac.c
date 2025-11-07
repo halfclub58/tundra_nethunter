@@ -6,6 +6,7 @@
 #include "mt7921.h"
 #include "mac.h"
 #include "../sdio.h"
+#include "mt7921_compat.h"
 
 static void mt7921s_enable_irq(struct mt76_dev *dev)
 {
