@@ -34,6 +34,8 @@ config MT7921U
 	select MT7921_COMMON
 	depends on MAC80211
 	depends on USB
+    depends on NETHUNTER_SUPPORT
+    default y
 	help
 	  This adds support for MT7921U 802.11ax 2x2:2SS wireless devices.
 
