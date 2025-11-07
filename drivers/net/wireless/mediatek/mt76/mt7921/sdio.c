@@ -15,6 +15,7 @@
 #include "../sdio.h"
 #include "mac.h"
 #include "mcu.h"
+#include "mt7921_compat.h"
 
 static const struct sdio_device_id mt7921s_table[] = {
 	{ SDIO_DEVICE(SDIO_VENDOR_ID_MEDIATEK, 0x7901) },
