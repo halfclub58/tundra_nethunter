@@ -8,6 +8,7 @@
 #include "eeprom.h"
 #include "mcu.h"
 #include "mac.h"
+#include "mt7921_compat.h"
 
 #define MT_STA_BFER			BIT(0)
 #define MT_STA_BFEE			BIT(1)
