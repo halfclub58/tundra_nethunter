@@ -4,6 +4,7 @@
 #include "mt7921.h"
 #include "../dma.h"
 #include "mac.h"
+#include "mt7921_compat.h"
 
 int mt7921e_tx_prepare_skb(struct mt76_dev *mdev, void *txwi_ptr,
 			   enum mt76_txq_id qid, struct mt76_wcid *wcid,
