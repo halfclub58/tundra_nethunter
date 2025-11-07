@@ -2,6 +2,7 @@
 
 #include "mt7921.h"
 #include "mcu.h"
+#include "mt7921_compat.h"
 
 enum mt7921_testmode_attr {
 	MT7921_TM_ATTR_UNSPEC,
