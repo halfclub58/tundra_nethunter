@@ -8,6 +8,7 @@
 #include "../dma.h"
 #include "mac.h"
 #include "mcu.h"
+#include "mt7921_compat.h"
 
 static struct mt76_wcid *mt7921_rx_get_wcid(struct mt7921_dev *dev,
 					    u16 idx, bool unicast)
