@@ -8,6 +8,7 @@
 #include <net/ipv6.h>
 #include "mt7921.h"
 #include "mcu.h"
+#include "mt7921_compat.h"
 
 static void
 mt7921_gen_ppe_thresh(u8 *he_ppet, int nss)
