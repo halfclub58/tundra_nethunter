@@ -399,6 +399,8 @@ config NETHUNTER_WIFI_DRIVERS_SUPPORT
 
 	select MT7601U
 
+    select MT7921U
+
 	select WLAN_VENDOR_RALINK
 
 	select RT2X00
