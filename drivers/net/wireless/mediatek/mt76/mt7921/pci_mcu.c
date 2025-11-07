@@ -3,6 +3,7 @@
 
 #include "mt7921.h"
 #include "mcu.h"
+#include "mt7921_compat.h"
 
 int mt7921e_driver_own(struct mt7921_dev *dev)
 {
