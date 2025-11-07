@@ -11,6 +11,7 @@
 #include "mac.h"
 #include "mcu.h"
 #include "regs.h"
+#include "mt7921_compat.h"
 
 static int
 mt7921s_mcu_send_message(struct mt76_dev *mdev, struct sk_buff *skb,
