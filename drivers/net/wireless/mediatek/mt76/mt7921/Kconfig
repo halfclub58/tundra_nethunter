@@ -1,42 +1,54 @@
 # SPDX-License-Identifier: ISC
+
 config MT7921_COMMON
-	tristate
+	tristate "MediaTek MT7921 core (common)"
+	depends on MAC80211 && CFG80211
 	select MT76_CONNAC_LIB
-	select BPAUTO_WANT_DEV_COREDUMP
+	# BPAUTO_WANT_DEV_COREDUMP removed (not in vanilla 5.4)
+	help
+	  Common support code (MCU, MAC, debugfs, init) shared by
+	  MT7921 PCIe / SDIO / USB variants. Requires external firmware:
+	  mt7921_patch.bin, mt7921_rom.bin, mt7921_wa.bin.
 
 config MT7921E
-	depends on !KERNEL_4_19
 	tristate "MediaTek MT7921E (PCIe) support"
+	depends on MAC80211 && PCI
 	select MT7921_COMMON
-	depends on MAC80211
-	depends on PCI
 	help
-	  This adds support for MT7921E 802.11ax 2x2:2SS wireless devices.
-
-	  To compile this driver as a module, choose M here.
+	  Support for MT7921E 802.11ax PCIe adapters (2x2:2SS).
+	  Choose M to build as module.
 
 config MT7921S
-	depends on !KERNEL_4_19
 	tristate "MediaTek MT7921S (SDIO) support"
+	depends on MAC80211 && MMC
 	select MT76_SDIO
 	select MT7921_COMMON
-	depends on MAC80211
-	depends on MMC
 	help
-	  This adds support for MT7921S 802.11ax 2x2:2SS wireless devices.
-
-	  To compile this driver as a module, choose M here.
+	  Support for MT7921S 802.11ax SDIO adapters.
+	  Choose M to build as module.
 
 config MT7921U
-	depends on !KERNEL_4_19
 	tristate "MediaTek MT7921U (USB) support"
+	depends on MAC80211 && USB
 	select MT76_USB
 	select MT7921_COMMON
-	depends on MAC80211
-	depends on USB
-    depends on NETHUNTER_SUPPORT
-    default y
+ depends on NETHUNTER_SUPPORT
+	default y
 	help
-	  This adds support for MT7921U 802.11ax 2x2:2SS wireless devices.
+	  Support for MT7921U 802.11ax USB adapters.
+	  Choose M to build as module.
 
-	  To compile this driver as a module, choose M here.
+config MT7921_ACPI_SAR
+	bool "MT7921 ACPI SAR power control"
+	depends on ACPI && MT7921_COMMON
+	help
+	  Enable ACPI-based SAR power limit parsing. Disable if platform
+	  (Android/ARM) lacks ACPI tables.
+
+config MT7921_TESTMODE
+	bool "MT7921 mac80211 testmode hooks"
+	depends on MT7921_COMMON && NL80211_TESTMODE
+	default y
+	help
+	  Enable testmode support (advanced RF testing). Disable if your
+	  mac80211 backport lacks NL80211 testmode.
