@@ -3,6 +3,7 @@
 
 #include "mt7921.h"
 #include "eeprom.h"
+#include "mt7921_compat.h"
 
 static int
 mt7921_reg_set(void *data, u64 val)
