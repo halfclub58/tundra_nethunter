@@ -6,6 +6,7 @@
 #include "mac.h"
 #include "mcu.h"
 #include "eeprom.h"
+#include "mt7921_compat.h"
 
 static const struct ieee80211_iface_limit if_limits[] = {
 	{
