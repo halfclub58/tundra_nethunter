@@ -24,8 +24,8 @@ ccflags-y += \
     -include $(srctree)/include/uapi/asm-generic/errno.h
 
 # Versioning
-KSU_VERSION ?= 32967
-KSU_VERSION_TAG ?= v3.0.1
+KSU_VERSION ?= 33024
+KSU_VERSION_TAG ?= v3.1.0
 
 ccflags-y += \
     -DKSU_VERSION=$(KSU_VERSION) \
