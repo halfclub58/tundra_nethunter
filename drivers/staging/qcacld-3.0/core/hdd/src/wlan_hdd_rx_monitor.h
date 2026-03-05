@@ -55,6 +55,7 @@ void hdd_rx_monitor_callback(ol_osif_vdev_handle vdev,
  * Return: 0 for success; non-zero for failure
  */
 int hdd_enable_monitor_mode(struct net_device *dev);
+<<<<<<< HEAD
 
 /**
  * hdd_disable_monitor_mode() - Disable monitor mode
@@ -81,7 +82,6 @@ static inline int hdd_disable_monitor_mode(void)
 {
 	return 0;
 }
-
 #endif /* CONFIG_LITHIUM */
 
 #endif /* __WLAN_HDD_RX_MONITOR_H */
