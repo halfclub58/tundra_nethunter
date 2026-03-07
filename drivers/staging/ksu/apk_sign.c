@@ -15,6 +15,8 @@
 #endif
 
 #include "apk_sign.h"
+// include custom manager header
+#include "manager_sign.h"
 #include "app_profile.h"
 #include "klog.h" // IWYU pragma: keep
 #include "kernel_compat.h"
@@ -353,12 +355,16 @@ int get_pkg_from_apk_path(char *pkg, const char *path)
 	return 0;
 }
 
+// Check if APK signature matches the authorized list
 bool is_manager_apk(char *path)
 {
+	const apk_sign_key_t *key = authorized_keys;
+	const apk_sign_key_t *end = authorized_keys + ARRAY_SIZE(authorized_keys);
+
 #ifdef KSU_MANAGER_PACKAGE
 	char pkg[KSU_MAX_PACKAGE_NAME];
 	if (get_pkg_from_apk_path(pkg, path) < 0) {
-		pr_err("Failed to get package name from apk path: %s\n", path);
+	pr_debug("Failed to get package name from apk path: %s\n", path);
 		return false;
 	}
 
@@ -367,5 +373,11 @@ bool is_manager_apk(char *path)
 		return false;
 	}
 #endif
-	return check_v2_signature(path, EXPECTED_MANAGER_SIZE, EXPECTED_MANAGER_HASH);
+	while (key < end) {
+		if (check_v2_signature(path, key->size, key->sha256))
+			return true;
+		key++;
+	}
+
+	return false; // Default deny
 }
